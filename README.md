@@ -14,7 +14,7 @@ To burn a bootloader onto an Arduino using another Arduino as an ISP, follow the
 
 1. Connect the working Arduino (ArduinoISP) to your computer via USB.
 2. Open the Arduino IDE on your computer.
-3. Select the board model and port corresponding to the working Arduino (ArduinoISP) under the **Tools** menu.
+3. Select the correct board model and port corresponding to the working Arduino (ArduinoISP) under the **Tools** menu.
 4. Upload the "ArduinoISP" sketch to the working Arduino (ArduinoISP) using the Arduino IDE. The sketch can be found under **File → Examples → ArduinoISP**.
 
 ### Step 2: Connecting the ATmega328PB Arduino
@@ -35,7 +35,9 @@ To burn a bootloader onto an Arduino using another Arduino as an ISP, follow the
    - **ATmega328PB (Crystal Oscillator)** if you have an external crystal connected to the ATmega328PB board.
    - **ATmega328PB (External Clock)** if you have an external clock source connected to the ATmega328PB board.
    - **ATmega328PB (Internal Clock)** if you're using the internal clock of the ATmega328PB board.
-   
+
+   Note: The selection depends on the specific configuration of your ATmega328PB board.
+
 ### Step 4: Adding the Board to the Boards Manager
 
 1. Open the Arduino IDE and go to the **Preferences** menu (File → Preferences).
@@ -50,7 +52,41 @@ To burn a bootloader onto an Arduino using another Arduino as an ISP, follow the
 ### Step 5: Burning the Bootloader
 
 1. Go to the **Tools** menu and select the appropriate settings for **Board**, **Processor**, and **Port**.
-2. Select **Arduino as ISP** under **Tools** → **Programmer**.
+2. Select **Arduino as ISP** under **Tools → Programmer**.
+
+   Note: Make sure you have selected the **Arduino as ISP** programmer. Do not select any other programmer option.
+
+3. Click on the **Burn Bootloader** option under the **Tools** menu.
+4. Wait for the bootloader burning process to complete.
+
+   Note: During this process, the Arduino ISP will transfer the bootloader code to the ATmega328PB Arduino. It may take a few seconds, so please be patient.
+
+5. Once the burning process is finished, you will see a message indicating successful bootloader burning.
+
+Congratulations! You have successfully burned the bootloader onto your ATmega328PB Arduino using another Arduino as an ISP.
+
+## Troubleshooting Steps
+
+If you encounter any issues during the burning process, try the following troubleshooting steps:
+
+1. Verify that all the connections between the Arduino ISP and ATmega328PB Arduino are correct and secure.
+2. Ensure that the correct board variant is selected for the ATmega328PB Arduino, based on your clock configuration.
+3. Double-check that the Arduino ISP is selected as the programmer in the Tools menu.
+4. Check if the ATmega328PB board is properly recognized by your computer by verifying the port selection.
+5. Try restarting the Arduino IDE and reconnecting the Arduino boards.
+6. If you continue to face difficulties, refer to the documentation or support channels of the respective repositories for further assistance.
+
+## Common Mistakes
+
+Here are some common mistakes to avoid:
+
+1. Connecting the Arduino ISP and ATmega328PB Arduino with incorrect pin mappings or orientations.
+2. Selecting the wrong ATmega328PB board variant that doesn't match your clock configuration.
+3. Choosing a different programmer option instead of "Arduino as ISP" in the Tools menu.
+4. Neglecting to install the necessary board files using the Boards Manager.
+5. Failing to establish a stable USB connection between the Arduino boards and your computer.
+
+Please ensure that you follow the instructions carefully, double-check your connections, and consult the troubleshooting steps if needed.
 
 ## Credits
 
